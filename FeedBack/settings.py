@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -126,7 +130,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = '/'
 
-LOGIN_URL = 'login'
+LOGIN_URL = '/user'
 
 ROOT_URLCONF = 'FeedBack.urls'
 
@@ -144,3 +148,26 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # STRIPE_WEBHOOK_SECRET="whsec_yZReRnVKG0HhvEkEF4vZU6rH6jLGeMZe"
 
 # django_heroku.settings(locals())
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend'
+]
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
+
+SITE_ID = 2
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/user'
+SOCIALACCOUNT_LOGIN_ON_GET = True
