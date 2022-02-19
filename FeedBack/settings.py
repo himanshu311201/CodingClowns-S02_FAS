@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-import django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -21,7 +20,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-5)ac1jkpenjr+u+ifd31t=he27v^gu1tyj@x0(oz)_2knp%pj@'
+
+SECRET_KEY = 'django-insecure-5)ac1jkpenjr+u+ifd31t=he27v^gu1tyj@x0(oz)_2knp%pj@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -32,17 +32,14 @@ DEBUG = True
 # Application definition
 
 INSTALLED_APPS = [
-    'Rent.apps.RentConfig',
     'User.apps.UserConfig',
+    'Creators.apps.CreatorsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'crispy_forms',
-    'captcha',
-    'Prabandh',
 ]
 
 MIDDLEWARE = [
@@ -54,8 +51,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-ROOT_URLCONF = 'Prabandh.urls'
 
 TEMPLATES = [
     {
@@ -72,8 +67,6 @@ TEMPLATES = [
         },
     },
 ]
-
-WSGI_APPLICATION = 'Prabandh.wsgi.application'
 
 
 # Database
@@ -135,6 +128,7 @@ LOGIN_REDIRECT_URL = '/'
 
 LOGIN_URL = 'login'
 
+ROOT_URLCONF = 'FeedBack.urls'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
