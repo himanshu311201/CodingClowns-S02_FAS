@@ -9,6 +9,7 @@ class Event(models.Model):
     csv_file = models.FileField(upload_to='documents')
     pdf_file = models.FileField(upload_to='documents')
 
+
 class Question(models.Model):
     question = models.CharField(max_length=200)
     event_related = models.ForeignKey(

@@ -34,6 +34,7 @@ DEBUG = True
 INSTALLED_APPS = [
     'User.apps.UserConfig',
     'Creators.apps.CreatorsConfig',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
